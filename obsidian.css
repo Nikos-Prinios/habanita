@@ -1,0 +1,266 @@
+/* --- START OF FILE theme.css (v2.7 - Editor Full-Width Header Fix) --- */
+
+/* --- Import Inconsolata Light (200) & Bold (700) from Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;700&display=swap');
+
+/* --- Root Variables --- */
+:root {
+    --font-monospace: 'Inconsolata', monospace;
+    --font-interface: var(--font-monospace);
+    --font-text: var(--font-monospace);
+    --font-heading: var(--font-monospace);
+    --normal-weight:  200;
+    --bold-weight:    700;
+    --h1-weight:      200;
+    --h2-weight:      200;
+    --h3-weight:      700;
+    --h4-weight:      700;
+    --h5-weight:      700;
+    --h6-weight:      200;
+    --font-text-size: 14px;
+    --h1: 1em; --h2: 1em; --h3: 1em; --h4: 1em; --h5: 1em; --h6: 1em;
+
+    --hexo-color-background: #282c34;
+    --hexo-color-text: #98c379;
+    --hexo-color-blue: #6de6ff;
+    --hexo-color-orange: #ffba5f;
+    --hexo-color-green: #8be19d;
+    --hexo-color-red: #ff836d;
+    --hexo-color-pink: #fd90ff;
+    --hexo-color-white-ish: #E5E1D1;
+    --hexo-color-accent-3: #ff836d;
+    --hexo-color-meta: #908d8d;
+    --hexo-color-link: rgba(212, 128, 170, 1);
+    --hexo-color-quote: #56b6c2;
+    --hexo-color-background-code: #2e333b;
+}
+
+/* --- Dark Theme Variable Mapping --- */
+.theme-dark {
+  --background-primary: var(--hexo-color-background);
+  --background-secondary: color-mix(in srgb, var(--hexo-color-background) 90%, white 10%);
+  --text-normal: var(--hexo-color-text);
+  --text-bold: var(--hexo-color-accent-3);
+  --h1-color: var(--hexo-color-blue);
+  --h2-color: var(--hexo-color-orange);
+  --h3-color: var(--hexo-color-orange);
+  --h4-color: var(--text-normal);
+  --h5-color: var(--hexo-color-white-ish);
+  --h6-color: var(--hexo-color-green);
+  --interactive-accent: var(--hexo-color-link);
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: var(--font-text) !important;
+  font-size: var(--font-text-size) !important;
+  font-weight: var(--normal-weight) !important;
+  line-height: 1.5;
+}
+
+/* Justify text in paragraphs and standard editor lines */
+.markdown-preview-view p,
+.cm-s-obsidian .cm-line:not(.HyperMD-list-line):not(.cm-header) {
+  text-align: justify;
+}
+
+/* Keep headers and lists left-aligned */
+.markdown-preview-view h1, .markdown-preview-view h2, .markdown-preview-view h3,
+.markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6,
+.markdown-preview-view ul, .markdown-preview-view ol,
+.cm-header, .HyperMD-list-line {
+  text-align: left;
+}
+
+/*
+==============================================
+  ★★★★★ STYLES UNIFIÉS (ÉDITION & LECTURE) ★★★★★
+==============================================
+*/
+
+/* --- Hiding Markdown Syntax Characters in Editor --- */
+.cm-formatting-header,
+.cm-formatting-strong,
+.cm-formatting-em,
+.cm-formatting-list,
+.cm-formatting-code,
+.cm-formatting-link,
+.cm-formatting-quote,
+.cm-formatting-strikethrough {
+  font-size: 0 !important;
+  color: transparent !important;
+}
+
+/* --- Base Editor Line Style --- */
+.cm-s-obsidian .cm-line {
+  font-family: var(--font-text) !important;
+  font-size: var(--font-text-size) !important;
+  font-weight: var(--normal-weight) !important;
+  line-height: 1.5 !important;
+}
+
+/* --- Bold --- */
+strong, b, .cm-strong {
+  font-weight: var(--bold-weight) !important;
+  color: var(--text-bold) !important;
+}
+
+/* --- Italic --- */
+em, .cm-em {
+  font-style: normal !important;
+  color: var(--hexo-color-orange) !important;
+}
+
+/* --- Headers (H1-H6) --- */
+h1, .cm-header-1 {
+  font-size: var(--h1) !important;
+  color: var(--background-primary) !important;
+  background-color: var(--h1-color) !important;
+  font-weight: var(--h1-weight) !important;
+  text-transform: uppercase;
+  padding: 0.2em 0.5em;
+  display: block !important; /* MODIFICATION: Forces full-width background */
+}
+h2, .cm-header-2 {
+  font-size: var(--h2) !important;
+  color: var(--background-primary) !important;
+  background-color: var(--h2-color) !important;
+  font-weight: var(--h2-weight) !important;
+  text-transform: uppercase;
+  padding: 0.2em 0.5em;
+  display: block !important; /* MODIFICATION: Forces full-width background */
+}
+h3, .cm-header-3 {
+  font-size: var(--h3) !important;
+  color: var(--background-primary) !important;
+  background-color: var(--h4-color) !important;
+  font-weight: var(--h3-weight) !important;
+  text-transform: uppercase;
+  padding: 0.1em 0.5em;
+  display: inline-block !important;
+}
+h4, .cm-header-4 {
+  font-size: var(--h4) !important;
+  color: var(--background-primary) !important;
+  background-color: var(--h5-color) !important;
+  font-weight: var(--h4-weight) !important;
+  text-transform: uppercase;
+  padding: 0.1em 0.5em;
+  display: inline-block !important;
+}
+h5, .cm-header-5 {
+  font-size: var(--h5) !important;
+  color: var(--background-primary) !important;
+  background-color: var(--h5-color) !important;
+  font-weight: var(--h5-weight) !important;
+  padding: 0.1em 0.5em;
+  display: inline-block !important;
+}
+h6, .cm-header-6 {
+  font-size: var(--h6) !important;
+  color: var(--h6-color) !important;
+  font-weight: var(--h6-weight) !important;
+}
+.cm-s-obsidian .cm-header { border-bottom: none !important; }
+
+/* --- Horizontal Rule --- */
+hr, .markdown-preview-view hr, .cm-hr {
+  border: none !important;
+  border-top: .5px dashed var(--hexo-color-accent-3) !important;
+  opacity: .5 !important;
+  margin: 20px 0 !important;
+  background-color: transparent !important;
+  height: 1px !important;
+}
+
+/* --- Code --- */
+code, .cm-inline-code, .HyperMD-codeblock {
+  font-family: var(--font-monospace) !important;
+  color: var(--text-normal);
+  font-size: .9em;
+  font-weight: var(--normal-weight) !important;
+}
+:not(pre) > code, .cm-inline-code:not(.cm-formatting) {
+  background-color: var(--code-background);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  margin: 0 0.1em;
+}
+pre, .HyperMD-codeblock {
+  background-color: var(--code-background);
+  padding: 1em;
+  border-radius: var(--radius-m);
+  overflow-x: auto;
+  margin: 1em 0;
+  line-height: 1.4;
+}
+
+/* --- Links --- */
+a, .cm-link, .cm-url {
+  color: var(--interactive-accent) !important;
+  text-decoration: none !important;
+}
+
+/* --- Blockquotes --- */
+blockquote, .cm-quote {
+  border-left-color: var(--hexo-color-quote) !important;
+  color: var(--hexo-color-quote) !important;
+  margin-left: 0;
+  padding-left: 1em !important;
+  font-style: italic;
+}
+
+/*
+==============================================
+ ★★★★★ STYLE POUR LES CALLOUTS (v2.4) ★★★★★
+==============================================
+*/
+.callout {
+  background-color: transparent !important;
+  border: none !important;
+  border-top: 1px dashed rgba(152, 195, 121, 0.5) !important;
+  border-bottom: 1px dashed rgba(152, 195, 121, 0.5) !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 2em 0 !important;
+  overflow: visible !important;
+}
+.callout .callout-icon, .callout::before { display: none !important; }
+.callout .callout-title {
+  background-color: transparent !important;
+  padding: 0.75em 1em 1em 1em !important;
+  margin: 0 !important;
+  border: none !important;
+  text-align: right;
+}
+.callout .callout-title-inner {
+  color: var(--hexo-color-blue) !important;
+  font-weight: var(--normal-weight) !important;
+  font-size: 1em !important;
+}
+.callout .callout-content {
+  padding: 0 1em 1.5em 1em !important;
+  margin: 0 !important;
+  color: var(--text-normal) !important;
+}
+.callout .callout-content p { color: var(--text-normal) !important; }
+.callout ul > li::marker, .callout .HyperMD-list-line .list-bullet { color: var(--hexo-color-meta) !important; }
+.callout blockquote {
+  color: var(--text-normal) !important;
+  border-left: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  font-style: normal !important;
+}
+
+/* --- Autres éléments UI --- */
+.nav-file-title.is-active,
+.nav-folder-title.is-active {
+  color: var(--text-accent);
+  background-color: var(--background-tertiary);
+}
+.cm-activeLine {
+  background-color: var(--background-secondary) !important;
+}
+
+/* --- END OF FILE theme.css (v2.7) --- */
