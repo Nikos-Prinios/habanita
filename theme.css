@@ -1,25 +1,36 @@
-/* --- START OF FILE theme.css (v2.7 - Editor Full-Width Header Fix) --- */
 
-/* --- Import Inconsolata Light (200) & Bold (700) from Google Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;700&display=swap');
+/* --- START OF FILE theme.css (v2.7) --- */
 
-/* --- Root Variables --- */
+/*
+==============================================
+  1. IMPORTS & VARIABLES FONDAMENTALES
+==============================================
+*/
+
+
+/* --- Variables Root (Thème de base) --- */
 :root {
-    --font-monospace: 'Inconsolata', monospace;
+    /* -- Polices & Graisses -- */
+
     --font-interface: var(--font-monospace);
     --font-text: var(--font-monospace);
     --font-heading: var(--font-monospace);
     --normal-weight:  200;
     --bold-weight:    700;
+    --font-text-size: 14px;
+
+    /* -- Graisses des titres -- */
     --h1-weight:      200;
     --h2-weight:      200;
     --h3-weight:      700;
     --h4-weight:      700;
     --h5-weight:      700;
     --h6-weight:      200;
-    --font-text-size: 14px;
-    --h1: 1em; --h2: 1em; --h3: 1em; --h4: 1em; --h5: 1em; --h6: 1em;
 
+    /* -- Tailles des titres (base) -- */
+    --h1: .8em; --h2: .8em; --h3: .8em; --h4: .8em; --h5: .8em; --h6: .8em;
+
+    /* -- Palette de couleurs Hexo -- */
     --hexo-color-background: #282c34;
     --hexo-color-text: #98c379;
     --hexo-color-blue: #6de6ff;
@@ -35,22 +46,30 @@
     --hexo-color-background-code: #2e333b;
 }
 
-/* --- Dark Theme Variable Mapping --- */
+/* --- Mapping des variables pour le thème sombre --- */
 .theme-dark {
   --background-primary: var(--hexo-color-background);
   --background-secondary: color-mix(in srgb, var(--hexo-color-background) 90%, white 10%);
   --text-normal: var(--hexo-color-text);
   --text-bold: var(--hexo-color-accent-3);
+  --interactive-accent: var(--hexo-color-link);
+  --code-background: var(--hexo-color-background-code);
+
+  /* -- Couleurs des titres -- */
   --h1-color: var(--hexo-color-blue);
   --h2-color: var(--hexo-color-orange);
   --h3-color: var(--hexo-color-orange);
   --h4-color: var(--text-normal);
   --h5-color: var(--hexo-color-white-ish);
   --h6-color: var(--hexo-color-green);
-  --interactive-accent: var(--hexo-color-link);
 }
 
-/* --- Global Styles --- */
+/*
+==============================================
+  2. STYLES GLOBAUX & RESET
+==============================================
+*/
+
 body {
   font-family: var(--font-text) !important;
   font-size: var(--font-text-size) !important;
@@ -58,13 +77,11 @@ body {
   line-height: 1.5;
 }
 
-/* Justify text in paragraphs and standard editor lines */
 .markdown-preview-view p,
-.cm-s-obsidian .cm-line:not(.HyperMD-list-line):not(.cm-header) {
+.cm-s-obsidian .cm-line:not(.HyperMD-list-line):not(.cm-header):not(.HyperMD-codeblock .cm-line) {
   text-align: justify;
 }
 
-/* Keep headers and lists left-aligned */
 .markdown-preview-view h1, .markdown-preview-view h2, .markdown-preview-view h3,
 .markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6,
 .markdown-preview-view ul, .markdown-preview-view ol,
@@ -72,98 +89,6 @@ body {
   text-align: left;
 }
 
-/*
-==============================================
-  ★★★★★ STYLES UNIFIÉS (ÉDITION & LECTURE) ★★★★★
-==============================================
-*/
-
-/* --- Hiding Markdown Syntax Characters in Editor --- */
-.cm-formatting-header,
-.cm-formatting-strong,
-.cm-formatting-em,
-.cm-formatting-list,
-.cm-formatting-code,
-.cm-formatting-link,
-.cm-formatting-quote,
-.cm-formatting-strikethrough {
-  font-size: 0 !important;
-  color: transparent !important;
-}
-
-/* --- Base Editor Line Style --- */
-.cm-s-obsidian .cm-line {
-  font-family: var(--font-text) !important;
-  font-size: var(--font-text-size) !important;
-  font-weight: var(--normal-weight) !important;
-  line-height: 1.5 !important;
-}
-
-/* --- Bold --- */
-strong, b, .cm-strong {
-  font-weight: var(--bold-weight) !important;
-  color: var(--text-bold) !important;
-}
-
-/* --- Italic --- */
-em, .cm-em {
-  font-style: normal !important;
-  color: var(--hexo-color-orange) !important;
-}
-
-/* --- Headers (H1-H6) --- */
-h1, .cm-header-1 {
-  font-size: var(--h1) !important;
-  color: var(--background-primary) !important;
-  background-color: var(--h1-color) !important;
-  font-weight: var(--h1-weight) !important;
-  text-transform: uppercase;
-  padding: 0.2em 0.5em;
-  display: block !important; /* MODIFICATION: Forces full-width background */
-}
-h2, .cm-header-2 {
-  font-size: var(--h2) !important;
-  color: var(--background-primary) !important;
-  background-color: var(--h2-color) !important;
-  font-weight: var(--h2-weight) !important;
-  text-transform: uppercase;
-  padding: 0.2em 0.5em;
-  display: block !important; /* MODIFICATION: Forces full-width background */
-}
-h3, .cm-header-3 {
-  font-size: var(--h3) !important;
-  color: var(--background-primary) !important;
-  background-color: var(--h4-color) !important;
-  font-weight: var(--h3-weight) !important;
-  text-transform: uppercase;
-  padding: 0.1em 0.5em;
-  display: inline-block !important;
-}
-h4, .cm-header-4 {
-  font-size: var(--h4) !important;
-  color: var(--background-primary) !important;
-  background-color: var(--h5-color) !important;
-  font-weight: var(--h4-weight) !important;
-  text-transform: uppercase;
-  padding: 0.1em 0.5em;
-  display: inline-block !important;
-}
-h5, .cm-header-5 {
-  font-size: var(--h5) !important;
-  color: var(--background-primary) !important;
-  background-color: var(--h5-color) !important;
-  font-weight: var(--h5-weight) !important;
-  padding: 0.1em 0.5em;
-  display: inline-block !important;
-}
-h6, .cm-header-6 {
-  font-size: var(--h6) !important;
-  color: var(--h6-color) !important;
-  font-weight: var(--h6-weight) !important;
-}
-.cm-s-obsidian .cm-header { border-bottom: none !important; }
-
-/* --- Horizontal Rule --- */
 hr, .markdown-preview-view hr, .cm-hr {
   border: none !important;
   border-top: .5px dashed var(--hexo-color-accent-3) !important;
@@ -173,35 +98,35 @@ hr, .markdown-preview-view hr, .cm-hr {
   height: 1px !important;
 }
 
-/* --- Code --- */
-code, .cm-inline-code, .HyperMD-codeblock {
-  font-family: var(--font-monospace) !important;
-  color: var(--text-normal);
-  font-size: .9em;
+
+/*
+==============================================
+  3. STYLES UNIFIÉS (ÉDITION & LECTURE)
+==============================================
+*/
+
+.cm-s-obsidian .cm-line {
+  font-family: var(--font-text) !important;
+  font-size: var(--font-text-size) !important;
   font-weight: var(--normal-weight) !important;
-}
-:not(pre) > code, .cm-inline-code:not(.cm-formatting) {
-  background-color: var(--code-background);
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  margin: 0 0.1em;
-}
-pre, .HyperMD-codeblock {
-  background-color: var(--code-background);
-  padding: 1em;
-  border-radius: var(--radius-m);
-  overflow-x: auto;
-  margin: 1em 0;
-  line-height: 1.4;
+  line-height: 1.5 !important;
 }
 
-/* --- Links --- */
+strong, b, .cm-strong {
+  font-weight: var(--bold-weight) !important;
+  color: var(--text-bold) !important;
+}
+
+em, .cm-em {
+  font-style: normal !important;
+  color: var(--hexo-color-orange) !important;
+}
+
 a, .cm-link, .cm-url {
   color: var(--interactive-accent) !important;
   text-decoration: none !important;
 }
 
-/* --- Blockquotes --- */
 blockquote, .cm-quote {
   border-left-color: var(--hexo-color-quote) !important;
   color: var(--hexo-color-quote) !important;
@@ -210,9 +135,39 @@ blockquote, .cm-quote {
   font-style: italic;
 }
 
+/* --- Titres (H1-H6) --- */
+h1, .cm-header-1, h2, .cm-header-2, h3, .cm-header-3, h4, .cm-header-4 {
+  text-transform: uppercase;
+  color: var(--background-primary) !important;
+  border-radius: 5px !important;
+  line-height: 1.4 !important;
+  padding: 0.2em 0.6em !important;
+  margin: 0.5em 0 !important;
+}
+h1, .cm-header-1, h2, .cm-header-2 { display: block !important; }
+h1, .cm-header-1 { font-size: var(--h1) !important; background-color: var(--h1-color) !important; font-weight: var(--h1-weight) !important; }
+h2, .cm-header-2 { font-size: var(--h2) !important; background-color: var(--h2-color) !important; font-weight: var(--h2-weight) !important; }
+h3, .cm-header-3, h4, .cm-header-4, h5, .cm-header-5 { display: inline-block !important; }
+h3, .cm-header-3 { font-size: var(--h3) !important; background-color: var(--h4-color) !important; font-weight: var(--h3-weight) !important; }
+h4, .cm-header-4 { font-size: var(--h4) !important; background-color: var(--h5-color) !important; font-weight: var(--h4-weight) !important; }
+h5, .cm-header-5 { font-size: var(--h5) !important; color: var(--background-primary) !important; background-color: var(--h5-color) !important; font-weight: var(--h5-weight) !important; padding: 0.1em 0.5em !important; }
+h6, .cm-header-6 { font-size: var(--h6) !important; color: var(--h6-color) !important; font-weight: var(--h6-weight) !important; }
+
+/* --- Code inline --- */
+:not(pre) > code, .cm-inline-code:not(.cm-formatting) {
+  font-family: var(--font-monospace) !important;
+  color: var(--text-normal);
+  font-size: .9em;
+  font-weight: var(--normal-weight) !important;
+  background-color: var(--code-background);
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  margin: 0 0.1em;
+}
+
 /*
 ==============================================
- ★★★★★ STYLE POUR LES CALLOUTS (v2.4) ★★★★★
+  4. COMPOSANTS SPÉCIFIQUES : CALLOUTS
 ==============================================
 */
 .callout {
@@ -226,41 +181,124 @@ blockquote, .cm-quote {
   overflow: visible !important;
 }
 .callout .callout-icon, .callout::before { display: none !important; }
-.callout .callout-title {
-  background-color: transparent !important;
-  padding: 0.75em 1em 1em 1em !important;
-  margin: 0 !important;
-  border: none !important;
-  text-align: right;
-}
-.callout .callout-title-inner {
-  color: var(--hexo-color-blue) !important;
-  font-weight: var(--normal-weight) !important;
-  font-size: 1em !important;
-}
-.callout .callout-content {
-  padding: 0 1em 1.5em 1em !important;
-  margin: 0 !important;
-  color: var(--text-normal) !important;
-}
+.callout .callout-title { background-color: transparent !important; padding: 0.75em 1em 1em 1em !important; margin: 0 !important; border: none !important; text-align: right; }
+.callout .callout-title-inner { color: var(--hexo-color-blue) !important; font-weight: var(--normal-weight) !important; font-size: 1em !important; }
+.callout .callout-content { padding: 0 1em 1.5em 1em !important; margin: 0 !important; color: var(--text-normal) !important; }
 .callout .callout-content p { color: var(--text-normal) !important; }
 .callout ul > li::marker, .callout .HyperMD-list-line .list-bullet { color: var(--hexo-color-meta) !important; }
-.callout blockquote {
-  color: var(--text-normal) !important;
-  border-left: none !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  font-style: normal !important;
+.callout blockquote { color: var(--text-normal) !important; border-left: none !important; padding-left: 0 !important; margin-left: 0 !important; font-style: normal !important; }
+
+
+/*
+==============================================
+  5. STYLES SPÉCIFIQUES À L'ÉDITEUR
+==============================================
+*/
+
+/* --- Masquage des caractères de syntaxe Markdown --- */
+.cm-formatting-strong, .cm-formatting-em, .cm-formatting-list, .cm-formatting-code,
+.cm-formatting-link, .cm-formatting-quote, .cm-formatting-strikethrough,
+.cm-formatting-header {
+  font-size: 0 !important;
+  color: transparent !important;
+  display: none !important;
 }
 
-/* --- Autres éléments UI --- */
+/* --- Ajustements pour les titres --- */
+.cm-s-obsidian .cm-header { border-bottom: none !important; }
+.cm-line.HyperMD-header { padding-left: 0 !important; text-indent: 0 !important; }
+
+/* --- Surlignage de la ligne active --- */
+.cm-s-obsidian .cm-active.cm-line:not(.HyperMD-codeblock .cm-line) {
+  background-color: var(--background-secondary) !important;
+}
+
+
+/*
+==============================================
+  ★★★ FIX: BLOCS DE CODE (ÉDITEUR & LECTURE) ★★★
+==============================================
+*/
+
+/* --- Bloc de code en Mode Lecture --- */
+.markdown-preview-view pre[class*="language-"] {
+  font-family: var(--font-monospace) !important;
+  background-color: var(--code-background) !important;
+  border-radius: 0.6em !important;
+  padding: 1em !important;
+  margin: 1em 0;
+  overflow: auto;
+}
+.markdown-preview-view pre[class*="language-"] code {
+  color: var(--text-normal);
+  font-size: .9em;
+  font-weight: var(--normal-weight) !important;
+}
+
+/*
+-------------------------------------------------
+  MÉTHODE BRUTE-FORCE ET DÉFINITIVE POUR LE MODE ÉDITION
+-------------------------------------------------
+*/
+
+/* 1. On retire le fond du conteneur principal */
+.HyperMD-codeblock {
+  background: none !important;
+  padding: 0 !important;
+  margin: 1em 0;
+}
+
+/* 2. On applique le fond à CHAQUE ligne et on APLATIT tous les coins */
+.HyperMD-codeblock .cm-line {
+  background-color: var(--code-background) !important;
+  border-radius: 0 !important;
+  padding-left: 1em !important;
+  padding-right: 1em !important;
+  font-family: var(--font-monospace) !important;
+  color: var(--text-normal) !important;
+  font-size: .9em !important;
+  font-weight: var(--normal-weight) !important;
+}
+
+/* 3. On applique les coins arrondis du HAUT et le padding du HAUT à la PREMIÈRE ligne */
+.HyperMD-codeblock .cm-line:first-of-type {
+  border-top-left-radius: 0.6em !important;
+  border-top-right-radius: 0.6em !important;
+  padding-top: 1em !important;
+}
+
+/* 4. On applique les coins arrondis du BAS et le padding du BAS à la DERNIÈRE ligne */
+.HyperMD-codeblock .cm-line:last-of-type {
+  border-bottom-left-radius: 0.6em !important;
+  border-bottom-right-radius: 0.6em !important;
+  padding-bottom: 1em !important;
+}
+
+/* --- Masquage des ``` en mode édition --- */
+.HyperMD-codeblock-begin,
+.HyperMD-codeblock-end {
+  /* Décommentez la ligne ci-dessous si vous souhaitez masquer les ``` */
+  /* display: none !important; */
+}
+
+
+/*
+==============================================
+  6. STYLES DE L'INTERFACE UTILISATEUR (UI)
+==============================================
+*/
+
+.workspace, .side-dock, .workspace-tab-header, .nav-folder-title,
+.nav-file-title, .titlebar, .status-bar, .workspace-tab-header-inner,
+.workspace-tabs, .workspace-tab-header-container, .workspace-tab-container {
+  font-size: 16px !important;
+  font-family: var(--font-interface);
+}
+
 .nav-file-title.is-active,
 .nav-folder-title.is-active {
   color: var(--text-accent);
   background-color: var(--background-tertiary);
 }
-.cm-activeLine {
-  background-color: var(--background-secondary) !important;
-}
 
-/* --- END OF FILE theme.css (v2.7) --- */
+/* --- END OF FILE theme.css --- */
