@@ -5,4 +5,4 @@ This is a quiet and comfortable dark theme for Obsidian. You'll find also two us
 **Author:** Nikos
 **Version:** 1.0.0
 
-![It looks like this](/img/habanita.png)
+![It looks like this](/img/habanita-big.png)
