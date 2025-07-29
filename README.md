@@ -9,8 +9,8 @@ This is a quiet and comfortable dark theme for Obsidian.
 
 ### For a better experience
 
-• You can download and activate the plugin *'Rainbow-colored-sidebar'*
-• Add this css snippet :
+1. You can download and activate the plugin *'Rainbow-colored-sidebar'*
+2. Add this css snippet :
 
 ---
 ```css
